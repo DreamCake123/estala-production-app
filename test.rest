@@ -1,0 +1,11 @@
+POST http://localhost:3000/blueprints
+Content-Type: application/json
+
+{
+    "typeName": "abc",
+    "typeId": "bced"
+}
+
+###
+
+GET http://localhost:3000/blueprints
