@@ -3,9 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <%= JSON.stringify(data) %>
+    <div class="outer">
+        <div class="submission">
+            <form action="/submit" method="POST">
+                <label for="typeName">Type Name: </label><br>
+                <input type="text" id="typeName" name="typeName"><br>
+                <label for="typeId">Type ID: </label><br>
+                <input type="text" id="typeId" name="typeId"><br>
+                <label for="ownerName">Owner: </label><br>
+                <input type="text" id="ownerName" name="ownerName"> 
+                <input type="submit" value="Submit" class="btn btn-light">
+            </form>
+        </div>
+        <div class="list-group">
+            <% for(let i of data) { %>
+                <div class="list-group-item">
+                    <%= i.typeName %>
+                    <div class="detail">
+                        Owner: <%= i.ownerName %><br>
+                        TypeID: <%= i.typeId %>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.4/firebase-analytics.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAxyocUnJWAFbRb603dod-J3Y4rJB6pplE",
+        authDomain: "estala-production-app.firebaseapp.com",
+        databaseURL: "https://estala-production-app.firebaseio.com",
+        projectId: "estala-production-app",
+        storageBucket: "estala-production-app.appspot.com",
+        messagingSenderId: "17630119402",
+        appId: "1:17630119402:web:d3d34c208847a322705e93",
+        measurementId: "G-8H9WPM4WSY"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
 </body>
 </html>

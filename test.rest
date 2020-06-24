@@ -1,11 +1,11 @@
-POST http://localhost:3000/blueprints
+POST http://localhost:3000/submit
 Content-Type: application/json
 
 {
-    "typeName": "abc",
-    "typeId": "bced"
+    "typeName": "abcd",
+    "typeId": "1234"
 }
 
 ###
 
-GET http://localhost:3000/blueprints
+GET http://localhost:3000/browse

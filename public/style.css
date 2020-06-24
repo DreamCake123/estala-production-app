@@ -1,0 +1,14 @@
+.outer{
+    margin: 20px;
+}
+.submission{
+    padding-bottom: 60px;
+}
+.list-group-item{
+    overflow: hidden;
+    height: 40px;
+    transition: height 0.5s;
+}
+.list-group-item:hover{
+    height: 150px;
+}

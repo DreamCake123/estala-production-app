@@ -8,7 +8,11 @@ const bpsSchema = new mongoose.Schema({
     typeId: {
         type: String,
         required: true,
-    }
+    },
+    ownerName: {
+        type: String,
+        required: true,
+    },
 });
 
-module.exports = mongoose.model('Blueprint', bpsSchema);
+module.exports = mongoose.model('blueprintsData', bpsSchema);

@@ -1,25 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const Blueprint = require('../models/Blueprint');
+const blueprintsData = require('../models/Blueprint');
 
 router.get('/', async (req, res) => {
+    //blueprintsData.find().then((_data) => res.send(_data));
+    res.set('Content-Type', 'text/html');
     try{
-        data = Blueprint.find()
-        renderedHtml = res.render('index', data)
-    }catch(err){
-        res.status(500).send(err.message)
-    }
-});
-router.post('/', async (req, res) => {
-    var bp = new Blueprint({
-        typeName: req.body.typeName,
-        typeId: req.body.typeId,
-    });
-    try{
-        var _bp = await bp.save();
-        res.status(201).json(_bp);
+        blueprintsData.find().then(
+            (_data) => {
+                res.render('index', {data: _data});})
     }catch(e){
-        res.status(500).header(e.message)
+        res.status(500);
     }
 });
 // router.patch('/:id', async (req, res) => {
