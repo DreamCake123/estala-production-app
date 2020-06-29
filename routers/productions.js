@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const blueprintsData = require('../models/Blueprint');
+const productionData = require('../models/productionData');
 
 router.get('/', async (req, res) => {
     //blueprintsData.find().then((_data) => res.send(_data));
     res.set('Content-Type', 'text/html');
     try{
-        blueprintsData.find().then(
+        productionData.find().then(
             (_data) => {
                 res.render('index', {data: _data});})
     }catch(e){

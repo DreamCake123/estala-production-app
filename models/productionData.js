@@ -15,4 +15,4 @@ const bpsSchema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model('blueprintsData', bpsSchema);
+module.exports = mongoose.model('productionData', bpsSchema);
