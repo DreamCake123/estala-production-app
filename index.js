@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const blueprintsRouter = require('./routers/blueprints')
+const productionsRouter = require('./routers/productions')
 const submissionRouter = require('./routers/submission')
 
 require('dotenv').config();
@@ -12,7 +12,7 @@ const app = express();
 app.set('view engine', 'ejs')
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use('/browse', blueprintsRouter)
+app.use('/browse', productionsRouter)
 app.use('/submit', submissionRouter)
 app.use(express.static('public'));
 app.listen(port, () => console.log("Server on"));
