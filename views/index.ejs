@@ -25,7 +25,7 @@
                 <div class="list-group-item">
                     <%= i.typeName %>
                     <div class="detail">
-                    Owner: <%= i.ownerName %><p>        |        </p>Producer: <% if( i.producerName != undefined){ %> <%= i.producerName %> <% } %> <br>
+                    Owner: <%= i.ownerName %><span>        |        </span>Producer: <% if( i.producerName != undefined){ %> <%= i.producerName %> <% } %> <br>
                         TypeID: <%= i.typeId %>
                         <form action="/submit/accept" method="POST">
                             <input placeholder="Producer Name..." type="text" id="producerName" name="producerName">
