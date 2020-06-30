@@ -10,14 +10,14 @@
 <body>
     <div class="outer">
         <div class="submission">
-            <form action="/submit" method="POST">
+            <form action="/submit/new" method="POST">
                 <label for="typeName">Type Name: </label><br>
                 <input type="text" id="typeName" name="typeName"><br>
                 <label for="typeId">Type ID: </label><br>
                 <input type="text" id="typeId" name="typeId"><br>
                 <label for="ownerName">Owner: </label><br>
                 <input type="text" id="ownerName" name="ownerName"> 
-                <input type="submit" value="Submit" class="btn btn-light">
+                <input type="submit" value="Submit" class="btn btn-primary">
             </form>
         </div>
         <div class="list-group">
@@ -25,8 +25,13 @@
                 <div class="list-group-item">
                     <%= i.typeName %>
                     <div class="detail">
-                        Owner: <%= i.ownerName %><br>
+                    Owner: <%= i.ownerName %><p>        |        </p>Producer: <% if( i.producerName != undefined){ %> <%= i.producerName %> <% } %> <br>
                         TypeID: <%= i.typeId %>
+                        <form action="/submit/accept" method="POST">
+                            <input placeholder="Producer Name..." type="text" id="producerName" name="producerName">
+                            <input type="hidden" name="jobObjectId" value="<%= i._id %>">
+                            <input type="submit" value="Accept" class="btn btn-secondary">
+                        </form>
                     </div>
                 </div>
             <% } %>

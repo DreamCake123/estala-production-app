@@ -1,18 +1,22 @@
 const mongoose = require('mongoose');
 
-const bpsSchema = new mongoose.Schema({
+const jobsSchema = new mongoose.Schema({
     typeName: {
         type: String,
         required: true,
     },
     typeId: {
         type: String,
-        required: true,
+        required: false,
     },
     ownerName: {
         type: String,
         required: true,
     },
+    producerName: {
+        type: String,
+        required: false,
+    }
 });
 
-module.exports = mongoose.model('productionData', bpsSchema);
+module.exports = mongoose.model('productionData', jobsSchema);

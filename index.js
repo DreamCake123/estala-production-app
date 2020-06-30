@@ -19,7 +19,8 @@ app.listen(port, () => console.log("Server on"));
 
 mongoose.connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false,
 });
 var db = mongoose.connection;
 

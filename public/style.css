@@ -10,5 +10,5 @@
     transition: height 0.5s;
 }
 .list-group-item:hover{
-    height: 150px;
+    height: 130px;
 }
