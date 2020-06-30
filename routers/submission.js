@@ -27,8 +27,22 @@ router.post('/accept', async (req, res) => {
             res.render('success', {data: result});
         }
     );
-    
 });
-
+router.post('/complete', async (req, res) => {
+    id = req.body.jobObjectId;
+    productionData.findByIdAndRemove(id).then(
+        (result) => {
+            res.render('success', {data: result});
+        }
+    );
+});
+router.post('/cancel', async (req, res) => {
+    id = req.body.jobObjectId;
+    productionData.findByIdAndRemove(id).then(
+        (result) => {
+            res.render('success', {data: result});
+        }
+    );
+});
 
 module.exports = router

@@ -39,15 +39,28 @@
         <div class="list-group">
             <% for(let i of data) { %>
                 <div class="list-group-item">
-                    <%= i.typeName %>
+                    <%= i.typeName %> <% if(i.producerName != undefined){ %> <span class="jobHasProducer"> [OK] Pending Job </span> <% } else { %> <span class="jobNoProducer"> [!] This job has no producer... yet! </span> <% }%>
                     <div class="detail">
-                    Owner: <%= i.ownerName %> | Producer: <% if( i.producerName != undefined){ %> <%= i.producerName %> <% } %> <br>
-                        TypeID: <%= i.typeId %>
+                        <div class="orderDate">Order Date: <%= i.orderDate %></div>
+                        Buyer: <%= i.ownerName %> | Producer: <%= i.producerName %><br>
                         <form action="/submit/accept" method="POST">
                             <input placeholder="Producer Name..." type="text" id="producerName" name="producerName">
                             <input type="hidden" name="jobObjectId" value="<%= i._id %>">
                             <input type="submit" value="Accept" class="btn btn-secondary">
                         </form>
+                        Options: <br>
+                        <div class="jobOptions">
+                            <% if(i.producerName != undefined){ %>
+                            <form action="/submit/complete" method="POST">
+                                <input type="hidden" name="jobObjectId" value="<%= i._id %>">
+                                <input type="submit" value="Complete" class="btn btn-warning">
+                            </form>
+                            <% } %>
+                            <form action="/submit/cancel" method="POST" onsubmit="return confirm('Are you sure?');">
+                                <input type="hidden" name="jobObjectId" value="<%= i._id %>">
+                                <input type="submit" value="[!] Cancel Job" class="btn btn-danger">
+                            </form>
+                            </div>
                     </div>
                 </div>
             <% } %>

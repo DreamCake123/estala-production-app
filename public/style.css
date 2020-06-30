@@ -10,7 +10,7 @@
     transition: height 0.5s;
 }
 .list-group-item:hover{
-    height: 130px;
+    height: 200px;
 }
 body {
     background-image: url("bg.jpg");
@@ -22,7 +22,21 @@ body {
     color: black;
 }
 .logo {
-    margin: 10px;
+    margin: 20px;
     position: absolute;
     max-width: 64px;
+}
+.jobNoProducer {
+    color: red;
+    font-size: 18px;
+}
+.jobHasProducer {
+    color: orange;
+    font-size: 18px;
+}
+.jobOptions > form {
+    display: inline;
+}
+.orderDate {
+    font-size: 10px;
 }

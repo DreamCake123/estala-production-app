@@ -1,13 +1,18 @@
 const mongoose = require('mongoose');
 
 const jobsSchema = new mongoose.Schema({
+    orderDate: {
+        type: Date,
+        required: true,
+        default: Date.now(),
+    },
     typeName: {
         type: String,
         required: true,
     },
     typeId: {
         type: String,
-        required: false,
+        default: "~Not provided~",
     },
     ownerName: {
         type: String,
@@ -15,8 +20,7 @@ const jobsSchema = new mongoose.Schema({
     },
     producerName: {
         type: String,
-        required: false,
-    }
+    },
 });
 
 module.exports = mongoose.model('productionData', jobsSchema);
