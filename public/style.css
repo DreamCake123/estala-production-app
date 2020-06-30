@@ -12,3 +12,17 @@
 .list-group-item:hover{
     height: 130px;
 }
+body {
+    background-image: url("bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+.list-group {
+    color: black;
+}
+.logo {
+    margin: 10px;
+    position: absolute;
+    max-width: 64px;
+}

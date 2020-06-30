@@ -5,19 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Estala Production App</title>
 </head>
 <body>
+    <img class="logo" src="logo.png" alt="">
     <div class="outer">
         <div class="submission">
             <form action="/submit/new" method="POST">
-                <label for="typeName">Type Name: </label><br>
-                <input type="text" id="typeName" name="typeName"><br>
-                <label for="typeId">Type ID: </label><br>
-                <input type="text" id="typeId" name="typeId"><br>
-                <label for="ownerName">Owner: </label><br>
-                <input type="text" id="ownerName" name="ownerName"> 
-                <input type="submit" value="Submit" class="btn btn-primary">
+                <div class="container">
+                    <h1>Submit new job</h1>
+                    <div class="row">
+                        <div class="col">
+                            <label for="typeName">Type Name: </label>
+                            <input type="text" id="typeName" name="typeName">
+                        </div>
+                        <div class="col">
+                            <label for="typeId">Type ID: </label>
+                            <input type="text" id="typeId" name="typeId" placeholder="[Optional]"> <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="ownerName">Owner: </label>
+                            <input type="text" id="ownerName" name="ownerName"> 
+                        </div>
+                        <div class="col">
+                            <input type="submit" value="Submit" class="btn btn-primary">
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
         <div class="list-group">
@@ -25,7 +41,7 @@
                 <div class="list-group-item">
                     <%= i.typeName %>
                     <div class="detail">
-                    Owner: <%= i.ownerName %><span>        |        </span>Producer: <% if( i.producerName != undefined){ %> <%= i.producerName %> <% } %> <br>
+                    Owner: <%= i.ownerName %> | Producer: <% if( i.producerName != undefined){ %> <%= i.producerName %> <% } %> <br>
                         TypeID: <%= i.typeId %>
                         <form action="/submit/accept" method="POST">
                             <input placeholder="Producer Name..." type="text" id="producerName" name="producerName">
