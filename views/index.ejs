@@ -20,8 +20,8 @@
                             <input type="text" id="typeName" name="typeName">
                         </div>
                         <div class="col">
-                            <label for="typeId">Type ID: </label>
-                            <input type="text" id="typeId" name="typeId" placeholder="[Optional]"> <br>
+                            <label for="jobReward">Job Reward: </label>
+                            <input type="text" id="jobReward" name="jobReward"> <br>
                         </div>
                     </div>
                     <div class="row">
@@ -39,7 +39,7 @@
         <div class="list-group">
             <% for(let i of data) { %>
                 <div class="list-group-item">
-                    <%= i.typeName %> <% if(i.producerName != undefined){ %> <span class="jobHasProducer"> [OK] Pending Job </span> <% } else { %> <span class="jobNoProducer"> [!] This job has no producer... yet! </span> <% }%>
+                    <span class="typeName"><%= i.typeName %></span> ~ Reward: <%= i.jobReward %> <% if(i.producerName != undefined){ %> <span class="jobHasProducer"> [OK] Pending Job </span> <% } else { %> <span class="jobNoProducer"> [!] This job has no producer... yet! </span> <% }%>
                     <div class="detail">
                         <div class="orderDate">Order Date: <%= i.orderDate %></div>
                         Buyer: <%= i.ownerName %> | Producer: <%= i.producerName %><br>

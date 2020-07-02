@@ -6,7 +6,7 @@ router.post('/new', async (req, res) => {
     
     var newJob = new productionData({
         typeName: req.body.typeName,
-        typeId: req.body.typeId,
+        jobReward: req.body.jobReward,
         ownerName: req.body.ownerName,
     });
     try{

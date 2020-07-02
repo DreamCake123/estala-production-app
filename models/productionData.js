@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const jobsSchema = new mongoose.Schema({
+    jobReward: {
+        type: String,
+        required: true,
+    },
     orderDate: {
         type: Date,
         required: true,
