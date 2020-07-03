@@ -10,23 +10,25 @@ router.post('/new', async (req, res) => {
         ownerName: req.body.ownerName,
     });
     try{
-        newJob.save().then(
-            (_newJob) => {
-                res.status(201);
-                res.render('success', {data: _newJob});
-        });
+        _newJob = await newJob.save()
+        res.status(201);
+        res.render('success', {data: _newJob});
     }catch(e){
         res.status(500);
+        res.render('failed', {data: e});
     }
 });
 router.post('/accept', async (req, res) => {
-    id = req.body.jobObjectId;
-    name = req.body.producerName;
-    productionData.findByIdAndUpdate(id, {producerName: name} ).then(
-        (result) => {
-            res.render('success', {data: result});
-        }
-    );
+    try{
+        id = req.body.jobObjectId;
+        name = req.body.producerName;
+        result = productionData.findByIdAndUpdate(id, {producerName: name} )
+        res.render('success', {data: result});
+    }catch(e){
+        res.status(500);
+        res.render('failed', {data: e});
+    }
+
 });
 router.post('/complete', async (req, res) => {
     id = req.body.jobObjectId;

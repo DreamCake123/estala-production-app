@@ -8,8 +8,11 @@
 <body>
     <h1>Submission successful!</h1>
     <h2>Redirecting...</h2>
+    <script src="/socket.io/socket.io.js"></script>
     <script>
-        setTimeout(()=>{window.location = '/browse'}, 2000)
+        var socket = io();
+        io.emit('new submit', data)
+        setTimeout(()=>{window.location = '/browse'}, 2000);
     </script>
 </body>
 </html>

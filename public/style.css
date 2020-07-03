@@ -15,7 +15,6 @@
 body {
     background-image: url("bg.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
     color: white;
 }
 .list-group {
@@ -41,11 +40,10 @@ body {
     font-size: 10px;
 }
 .typeName {
-    font-size: 22px;
+    font-size: 20px;
 }
 .myName {
-    font-size: 15px;
     position: absolute;
+    font-size: 15px;
     right: 15px;
-    bottom: 15px;
 }
