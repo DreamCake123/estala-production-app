@@ -14,7 +14,7 @@
     "express": "^4.17.1",
     "firebase-tools": "^8.4.3",
     "mongoose": "^5.9.20",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.4.0"
   },
   "engine": {
     "npm": "6.13.4"
